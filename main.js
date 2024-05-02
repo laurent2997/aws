@@ -1,7 +1,11 @@
 /* Wetterstationen Euregio Beispiel */
 
 
-//Zum Repositp
+/*Da ist irgendwas schiefgelaufen mit dem Anlegen des Repository und dem Klonen der Seite.
+Ehrlich gesagt weiß ich auch nicht mehr ganz wie das funktioniert. 
+Irgendwie habe ich es hinbekommen jedoch nicht mit dem richtigen Titel der Seite.
+Auf jeden Fall ist sie unter https://laurent2997.github.io/https---github.com-laurent2997-aws/ zu erreichen. 
+*/
 
 // Innsbruck
 let ibk = {
