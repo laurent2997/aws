@@ -55,7 +55,7 @@ async function showStations(url) {
                     icon: L.icon({
                         iconUrl: "icons/wifi.png",
                         iconAnchor: [16, 36], 
-                        popupAchnor: [0, -36]
+                        popupAnchor: [0, -36]
                     })
                 });
             },
@@ -67,7 +67,7 @@ async function showStations(url) {
             <ul>
                 <li>Lufttemperatur (°C): ${feature.properties.LT || "--"} </li>
                 <li>Relative Luftfeuchte (%): ${feature.properties.RH || "--"}</li>
-                <li>Windgeschwingdigkeit (km/h): ${feature.propertiesWG || "--"}</li>
+                <li>Windgeschwingdigkeit (km/h): ${feature.propertiesWG!= undefined ? feature.properties.WG.toFixed(1): "-"}</li>
                 <li>Schneehöhe (cm): ${feature.properties.HS || "--"}</li>
             </ul>
                 <LetzteDaten>${feature.properties.date}</LetzteDaten>
