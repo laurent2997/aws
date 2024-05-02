@@ -10,6 +10,10 @@ const COLORS = {
         {min: 5, max: 10, color: "#ffff73" },
         {min: 10, max: 15, color: "#ffbe7d" },
         {min: 15, max: 20, color: "#ff9b41" },
+        {min: 20, max: 25, color: "#ff5a41" },
+        {min: 25, max: 30, color: "#ff1f24" },
+        {min: 30, max: 50, color: "#fa3c96" },
+        
 
     ]
 };
