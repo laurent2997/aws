@@ -82,8 +82,8 @@ function showTemperature(geojson){
 function showWind(geojson){
     L.geoJson(geojson,{
         filter: function(feature){
-            //feature.properties.LT
-            if(feature.properties.LT > -50 && feature.properties.LT < 50){
+            //feature.properties.WG
+            if(feature.properties.WG > 0 && feature.properties.LT < 250){
                 return true;
             }
         },
@@ -91,8 +91,10 @@ function showWind(geojson){
             let color = getColor(feature.properties.WG, COLORS.wind);
             return L.marker(latlng,{
                 icon: L.divIcon({
-                    className: "aws-div-icon",
-                    html: `<span style = "background-color:${color}">${feature.properties.WG.toFixed(1)}</span>`
+                    className: "aws-div-icon-wind",
+                    html: `<span title="${feature.properties.WG.toFixed(1)} km/h"><i style="transform:rotate(${feature.properties.WR}deg);
+                    color:${color}" class="fa-solid fa-circle-arrow-down"></i></span>
+                    `
                 })
 
             })
@@ -103,8 +105,8 @@ function showWind(geojson){
 function showSnow(geojson){
     L.geoJson(geojson,{
         filter: function(feature){
-            //feature.properties.LT
-            if(feature.properties.LT > -50 && feature.properties.LT < 50){
+            //feature.properties.HS
+            if(feature.properties.HS > -50 && feature.properties.HS < 50){
                 return true;
             }
         },
@@ -114,6 +116,7 @@ function showSnow(geojson){
                 icon: L.divIcon({
                     className: "aws-div-icon",
                     html: `<span style = "background-color:${color}">${feature.properties.HS.toFixed(1)}</span>`
+                    
                 })
 
             })
