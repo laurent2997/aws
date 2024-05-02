@@ -1,5 +1,8 @@
 /* Wetterstationen Euregio Beispiel */
 
+
+//Zum Repositp
+
 // Innsbruck
 let ibk = {
     lat: 47.267222,
@@ -63,9 +66,10 @@ async function showStations(url) {
                 <li>Windgeschwingdigkeit (km/h): ${feature.propertiesWG || "--"}</li>
                 <li>Schneehöhe (cm): ${feature.properties.HS || "--"}</li>
             </ul>
+                <LetzteDaten>${feature.properties.date}</LetzteDaten>
             `)
             }
-        })
+        }).addTo(themaLayer.stations)}
 
         
 
