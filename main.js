@@ -22,6 +22,7 @@ let map = L.map("map", {
 let themaLayer = {
     stations: L.featureGroup().addTo(map),
     temperature: L.featureGroup().addTo(map),
+    wind: L.featureGroup().addTo(map),
 }
 
 // Hintergrundlayer
@@ -63,6 +64,28 @@ function showTemperature(geojson){
             }
         },
         pointToLayer: function(feature, latlng){
+            let color = getColor(feature.properties.LT, COLORS.temperature);
+            return L.marker(latlng,{
+                icon: L.divIcon({
+                    className: "aws-div-icon",
+                    html: `<span>${feature.properties.LT.toFixed(1)}</span>`
+                })
+
+            })
+        }
+    }).addTo(themaLayer.temperature);
+}
+
+function showWind(geojson){
+    L.geoJson(geojson,{
+        filter: function(feature){
+            //feature.properties.LT
+            if(feature.properties.LT > -50 && feature.properties.LT < 50){
+                return true;
+            }
+        },
+        pointToLayer: function(feature, latlng){
+            let color = getColor(feature.properties.WG, COLORS.wind);
             return L.marker(latlng,{
                 icon: L.divIcon({
                     className: "aws-div-icon",
