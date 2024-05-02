@@ -43,6 +43,19 @@ L.control.scale({
     imperial: false,
 }).addTo(map);
 
+function showTemperature(geojson){
+    L.geoJson(geojson,{
+        pointToLayer: function(feature, latlng){
+            return L.marker(latlng,{
+                icon: L.divIcon({
+                    html: `<span>${feature.properties.LT}</span>`
+                })
+
+            })
+        }
+    }).addTo(themaLayer.temperature);
+}
+
 // GeoJSON der Wetterstationen laden
 async function showStations(url) {
     let response = await fetch(url);
@@ -76,7 +89,10 @@ async function showStations(url) {
                 <span>${pointInTime.toLocaleString()}</span>
             `)
             }
-        }).addTo(themaLayer.stations)}
+        }).addTo(themaLayer.stations)
+    showTemperature(geojson);
+
+    }
 
         
 
