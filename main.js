@@ -47,7 +47,17 @@ async function showStations(url) {
                 return L.marker(latlng, 
                     {icon: L.icon({iconUrl: "icons/wifi.png", iconAnchor: [16, 36], popupAchnor[0 , -36]})})
 
-            }})
+            }},
+            //Textfeld mit Namen und Seehöhe der Station und weitere Wetterdaten
+            onEachFeature: function(feature, layer)
+            {
+                layer.bindPopup(`
+            <h4>${feature.properties.name} (${feature.geometry.coordinates[2]}m)<h4>  
+            <ul>
+
+            </ul>
+            `)
+            }
         
 
 
