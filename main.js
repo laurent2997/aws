@@ -44,10 +44,14 @@ async function showStations(url) {
     L.geoJSON(geojson,
         {pointToLayer: function(feature, latlng)
             {
-                return L.marker(latlng, 
-                    {icon: L.icon({iconUrl: "icons/wifi.png", iconAnchor: [16, 36], popupAchnor[0 , -36]})})
-
-            }},
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: "icons/wifi.png",
+                        iconAnchor: [16, 36], 
+                        popupAchnor: [0, -36]
+                    })
+                });
+            },
             //Textfeld mit Namen und Seehöhe der Station und weitere Wetterdaten
             onEachFeature: function(feature, layer)
             {
@@ -55,10 +59,12 @@ async function showStations(url) {
             <h4>${feature.properties.name} (${feature.geometry.coordinates[2]}m)<h4>  
             <ul>
                 <li>Lufttemperatur (°C): ${feature.properties.LT || "--"} </li>
-                
+                <li>Relative Luftfeuchte (%): ${feature.properties.RH || "--"}</li>
             </ul>
             `)
             }
+        })
+
         
 
 
