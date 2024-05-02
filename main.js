@@ -92,7 +92,7 @@ function showWind(geojson){
             return L.marker(latlng,{
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span style = "background-color:${color}">${feature.properties.LT.toFixed(1)}</span>`
+                    html: `<span style = "background-color:${color}">${feature.properties.WG.toFixed(1)}</span>`
                 })
 
             })
@@ -113,7 +113,7 @@ function showSnow(geojson){
             return L.marker(latlng,{
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span style = "background-color:${color}">${feature.properties.LT.toFixed(1)}</span>`
+                    html: `<span style = "background-color:${color}">${feature.properties.HS.toFixed(1)}</span>`
                 })
 
             })
