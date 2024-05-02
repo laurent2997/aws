@@ -62,6 +62,7 @@ async function showStations(url) {
             //Textfeld mit Namen und Seehöhe der Station und weitere Wetterdaten
             onEachFeature: function(feature, layer)
             {
+                let pointInTime = new Date(feature.properties.date);
                 layer.bindPopup(`
             <h4>${feature.properties.name} (${feature.geometry.coordinates[2]}m)</h4>  
             <ul>
@@ -70,7 +71,7 @@ async function showStations(url) {
                 <li>Windgeschwingdigkeit (km/h): ${feature.propertiesWG!= undefined ? feature.properties.WG.toFixed(1): "-"}</li>
                 <li>Schneehöhe (cm): ${feature.properties.HS || "--"}</li>
             </ul>
-                <LetzteDaten>${feature.properties.date}</LetzteDaten>
+                <span>${pointInTime.toLocaleString()}</span>
             `)
             }
         }).addTo(themaLayer.stations)}
