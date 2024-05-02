@@ -54,7 +54,8 @@ async function showStations(url) {
                 layer.bindPopup(`
             <h4>${feature.properties.name} (${feature.geometry.coordinates[2]}m)<h4>  
             <ul>
-
+                <li>Lufttemperatur (°C): ${feature.properties.LT || "--"} </li>
+                
             </ul>
             `)
             }
