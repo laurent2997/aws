@@ -37,6 +37,7 @@ L.control.layers({
 }, {
     "Wetterstationen": themaLayer.stations,
     "Temperatur": themaLayer.temperature,
+    "Windgeschwindigkeit": themaLayer.wind,
 }).addTo(map);
 
 // Maßstab
@@ -68,7 +69,7 @@ function showTemperature(geojson){
             return L.marker(latlng,{
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span>${feature.properties.LT.toFixed(1)}</span>`
+                    html: `<span style = "background-color:${color}">${feature.properties.LT.toFixed(1)}</span>`
                 })
 
             })
@@ -89,7 +90,7 @@ function showWind(geojson){
             return L.marker(latlng,{
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span>${feature.properties.LT.toFixed(1)}</span>`
+                    html: `<span style = "background-color:${color}">${feature.properties.LT.toFixed(1)}</span>`
                 })
 
             })
@@ -131,8 +132,9 @@ async function showStations(url) {
             `)
             }
         }).addTo(themaLayer.stations)
+        
     showTemperature(geojson);
-
+    showWind(geojson);
     }
 
         
