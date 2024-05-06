@@ -120,6 +120,8 @@ function showSnow(geojson){
     }).addTo(themaLayer.snow);
 }
 
+
+
 // GeoJSON der Wetterstationen laden
 async function showStations(url) {
     let response = await fetch(url);
@@ -162,6 +164,7 @@ async function showStations(url) {
     }
 
         
+
 
 
 showStations("https://static.avalanche.report/weather_stations/stations.geojson");
